@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load bootstrap4 %}
+
+{% block content %}
+{{block.super}}
+
+<div  style="">
+    <div class="col-md-8">
+       <form action="/project/{{project.id}}" method="post" enctype="multipart/form-data">
+   {%csrf_token%}
+   {% bootstrap_form form%}
+    <input type="submit" class="btn btn-success btn-lg" value="Vote">
+ </form>
+    </div>
+</div>
+{% endblock %}

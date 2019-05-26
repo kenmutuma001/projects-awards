@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div style="padding-top: 100px;margin-top: 50px;" class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form action="{% url 'upload_project' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-success btn-lg" value="POST">
+            </form>
+        </div>
+    </div>
+</div>
+{{ form.media }}
+{% endblock %}

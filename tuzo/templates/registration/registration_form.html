@@ -1,0 +1,33 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap3 %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div style="background-color: rgba(250, 135, 135, 0.2);  border-radius: 1em;" class="container">
+    <div class="row signup-page">
+        <div class="col-md-8">
+            {% if form.errors %}
+                <p>Some information may be incorrect</p>
+            {% endif %}
+            <div style="border-left: 30px; margin-left: 220px; border-radius: 1em;" class="signup-fields">
+                <div style=" border-radius: 3em;" class="section">
+                    <h1 align="center" style="font-style: italic; color: black;" >Zawadi</h1>
+                    <div class="form-section">
+                        <form action="/accounts/register/" method="POST">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary btn-sm" value="Sign up">
+                            </div>
+                            <input type="hidden" name="next" value="{{next}}">
+                        </form>
+                    </div>
+                </div>
+                <div style=" border-radius: 0.5em;" class="section">
+                    <p>Have an account? <a href="/accounts/login/">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

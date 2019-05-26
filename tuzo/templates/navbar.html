@@ -1,0 +1,47 @@
+<div>
+    <div style="background-color:;padding-bottom: px;text-align: center;padding-top: 29px;padding-bottom: ">
+        <p>The awards of design, creativity and innovation on the internet</p>
+    </div>
+    <hr>
+    <div>
+        <nav style="background-color: rgba(20, 20, 20, 0.959);margin-top: 72px;padding-top: px;"
+            class="navbar navbar-expand-lg navbar-light fixed-top" id="navMain">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="" style="background-color: ;margin-left: 20px;">
+                    <div class="row">
+                        <div class="col-md-12 nav-search">
+                            <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search' %}">
+                                <input style="margin-left: 45px;" class="form-control my-2 my-sm-0 search-input"
+                                    name="search" type="search" placeholder="Search Users" aria-label="Search">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="" style="background-color:;margin-left: 200px;font-weight: 800;">
+                    <a style="padding-right: 30px; color: black;" class="smooth-scroll" href="/"><i class="instagram">
+                            <p style="font-weight: 800;font-size: 30px;">
+                                Project Awards
+                            </p>
+
+                        </i></a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+                <div style="margin-left: 350px;">
+                    <ul class="navbar-nav ml-auto" style="">
+                        <li class="nav-item" style="font-weight: 500">
+                            <a style="color: black;" class="nav-link open-nav"
+                                href="{% url 'profile' username=user %}"><i class="fa fa-user">{{user}}</i></a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </nav>
+    </div>
+
+</div>

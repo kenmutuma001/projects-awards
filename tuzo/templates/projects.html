@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+ <div class="w3-container">
+     <h1 class="text-center">{{project.title}}</h1>
+     <hr>
+
+   <div class="w3-row-padding" style="height:500px">
+     <img src="{{project.image.cdn_url}}"  class="w3-image" alt=""style="max-height:100%; min-width:100%">
+   </div>
+
+   <div class="w3-panel w3-border w3-light-grey w3-round-large">
+<h3 class="w3-center w3-serif"> Project Details</h3>
+       <hr>
+
+
+   <div class="w3-row-padding w3-margin">
+       <p><strong>Description:  </strong>{{project.description}}</p>
+       <p><strong>url:  </strong><a href="{{project.link}}" style="color:blue">{{project.link}}</a></p>
+
+       <div class="w3-row">
+
+
+
+  <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Design</th>
+      <th>Usablity</th>
+      <th>Content</th>
+    </tr>
+    <tr>
+      <td>{{project.rating}}</td>
+      <td>{{project.rating}}</td>
+      <td>{{project.rating}}</td>
+    </tr>
+
+  </table>
+</div>
+  <hr>
+   </div>
+
+   <div class="w3-panel w3-leftbar w3-sand  w3-serif">
+     <p><strong>Posted </strong>{{project.created_on|timesince}} by {{project.owner.username}}
+ </p>
+   </div>
+       </div>
+
+ </div>
+
+ {% endblock %}
