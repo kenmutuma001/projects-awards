@@ -12,14 +12,14 @@
 
   <div class="row">
     {% for project in projects %}
-    <div class="col-xs-12 col-sm-6 col-md-4 projects" style="background-color:;padding-bottom: 20px">
-      <div class="post-card" style="background-color: white;padding-bottom: 80px;">
+    <div class="col-xs-12 col-sm-6 col-md-4 projects" style="background-color:;padding-bottom: 0px">
+      <div class="post-card" style="background-color: white;padding-bottom: 30px;">
         <div class="post-image">
           <img src="{{project.image.url}}" data-toggle="modal" data-target="#exampleModalCenter{{project.id}}"
-            class="img-responsive project" alt="" style="position: center;size: cover;" height="300px" width="350px">
+            class="img-responsive project" alt="" style="position: center;size: cover;" height="250px" width="350px">
 
         </div>
-        <div class="post-comments" style="margin-top: 20px;margin-left: 9px;">
+        <div class="post-comments" style="margin-top: 10px;margin-left: 20px;">
           <h4 style="font-family: 'Lato', sans-serif;font-size: 15px;color: black;font-weight: 550">
             {{project.title}}
           </h4>
@@ -119,6 +119,7 @@
           </div>
         </div>
       </div>
+      <br>
 
 
 
@@ -132,46 +133,7 @@
 
 </div>
 </div>
-
-
-<style>
-  /* .stars-outer {
-    position: relative;
-    display: inline-block;
-  }
-
-  .stars-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-  }
-
-  .stars-outer::before {
-    content: "\f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: #ccc;
-  }
-
-  .stars-inner::before {
-    content: "\f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005 \f005";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: #f8ce0b !important;
-  }
-
-  #id_rating {
-    width: 80px !important;
-  }
-
-  #id_comment {
-    width: 400px !important;
-  } */
-</style>
 {% endblock %}
 {% block scripts %} {{block.super}}
-<script type="text/javascript" src="{%static 'js/ratings.js'%}"></script>
+
 {% endblock %}

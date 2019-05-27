@@ -1,10 +1,15 @@
+{% load static %}
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet">
+</head>
 <div>
-    <div style="background-color:;padding-bottom: px;text-align: center;padding-top: 29px;padding-bottom: ">
+    <!-- <div style="background-color:;padding-bottom: px;text-align: center;padding-top: 29px;padding-bottom: ">
         <p>The awards of design, creativity and innovation on the internet</p>
     </div>
-    <hr>
+    <hr> -->
     <div>
-        <nav style="background-color: rgba(20, 20, 20, 0.959);margin-top: 72px;padding-top: -20px;"
+        <nav style="background-color: #f0fffe;margin-top: px;padding-top: -20px;"
             class="navbar navbar-expand-lg navbar-light fixed-top" id="navMain">
 
             <div class="" style="background-color: ;margin-left: 20px;margin-top: -7px">
@@ -22,7 +27,8 @@
                     <div class="col-md-12 nav-search">
                         <a style="padding-right: 30px; color: black;" class="smooth-scroll" href="/"><i
                                 class="instagram">
-                                <p style="font-weight: 800;font-size: 30px;margin-top: -25px;">
+                                <p
+                                    style="font-weight: 1000;font-size: 40px;margin-top: -25px;font-family: 'Calligraffitti', cursive;">
                                     Project Awards
                                 </p>
 
@@ -33,15 +39,28 @@
 
             <div
                 style="margin-left: 500px;background-color: white;margin-top: -4px;height: 70px;width: 100px;text-align: center;padding-top: 10px;padding-left: 35px;">
-                <div class="avatar-sm">
-                    <img src="{{ post.user.profile_pic.url  }}" alt="yo">
+                <div style="margin-right: 25px;">
+                    <a href="{% url 'profile' username=user %}">
+                        {% if profile_details.prof_pic %}
+                        <img src="{{profile_details..prof_pic.url}}" alt="profile-photo" height="33px" width="33px">
+                        {% else %}
+                        <img style="border-radius: 40em;" src="/static/images/avatar.png" alt="avatar" height="33px"
+                            width="33px">
+                        {% endif %}
+
+                    </a>
+
                 </div>
-                <ul class="navbar-nav ml-auto" style="">
-                    <li class="nav-item" style="font-weight: 500">
-                        <a style="color: black;" class="nav-link open-nav" href="{% url 'profile' username=user %}"><i
-                                class="fa fa-user">{{user}}</i></a>
-                    </li>
-                </ul>
+                <div style="margin-top: -5px;">
+                    <ul class="navbar-nav ml-auto" style="">
+                        <li class="nav-item" style="font-weight: 500">
+                            <a style="color: black;" class="nav-link open-nav"
+                                href="{% url 'profile' username=user %}"><i class="fa fa-user">{{user}}</i></a>
+                        </li>
+                    </ul>
+                </div>
+
+
             </div>
 
 

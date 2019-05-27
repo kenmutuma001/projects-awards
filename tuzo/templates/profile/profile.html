@@ -15,14 +15,14 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-md-4" style="background-color:chocolate;">
+      <!-- <div class="col-md-2" style="">
 
         {% if profile_details.prof_pic %}
-        <img src="{{profile_details.prof_pic.cdn_url}}" alt="profile-photo">
+        <img src="{{profile_details.prof_pic.url}}" alt="profile-photo" height="120px" width="120px">
         {% else %}
-        <img style="border-radius: 40em;" src="/static/img/avatah.png" alt="avatar">
+        <img style="border-radius: 40em;" src="/static/images/avatar.png" alt="avatar">
         {% endif %}
-      </div>
+      </div> -->
       <div class="col-md-4">
         <ul class="list-inline">
           {% if profile.username == user.username %}
