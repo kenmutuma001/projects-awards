@@ -8,6 +8,7 @@ from django.dispatch import receiver
 # from pyuploadcare.dj.forms import FileWidget
 from django.conf import settings
 import numpy as np
+import datetime as dt
 
 class Profile(models.Model):
     prof_pic = models.ImageField('avatar', default='default.jpg')
@@ -62,6 +63,8 @@ class Project(models.Model):
     profile = models.ForeignKey(
         Profile, on_delete=models.CASCADE, default="", blank=True, null=True)
     rating = models.TextField()
+    post_date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
 
     def save_project(self):
         self.save()
