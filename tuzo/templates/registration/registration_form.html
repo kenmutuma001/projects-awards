@@ -3,15 +3,16 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div style="background-color: rgba(250, 135, 135, 0.2);  border-radius: 1em;" class="container">
+<div style="border-radius: 1em;margin-top: 30px;" class="container">
     <div class="row signup-page">
-        <div class="col-md-8">
+        <div class="col-md-6" style="background-color: white;margin-left: 270px;border-radius: 3em">
             {% if form.errors %}
-                <p>Some information may be incorrect</p>
+            <p>Some information may be incorrect</p>
             {% endif %}
-            <div style="border-left: 30px; margin-left: 220px; border-radius: 1em;" class="signup-fields">
-                <div style=" border-radius: 3em;" class="section">
-                    <h1 align="center" style="font-style: italic; color: black;" >Zawadi</h1>
+            <div style="border-left: px;border-radius: 1em;" class="signup-fields">
+                <div style=" " class="section">
+                    <h1 align="center" style="font-style: italic; color: black;padding-top: 10px;">Projects Awards</h1>
+                    <hr>
                     <div class="form-section">
                         <form action="/accounts/register/" method="POST">
                             {% csrf_token %}
