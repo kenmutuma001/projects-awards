@@ -5,107 +5,66 @@
 
 {% block content %}
 {{ form.media }}
-<!-- <div style="padding: 80px;" class="">
-  <div class="row">
-    <div class="" style="background-color:blue">
-      <div class="row top-section">
-        <div class="col-md-6 profile-image" style="background-color:chartreuse;">
-          {% if profile_details.prof_pic %}
-          <img src="{{profile_details.prof_pic.cdn_url}}" alt="profile-photo">
-          {% else %}
-          <img style="border-radius: 40em;" src="/static/img/avatah.png" alt="avatar">
-          {% endif %}
-        </div>
-        <div class="col-md-5 text-center" style="background-color:brown;">
-          
-        </div>
-      </div>
-    </div>
-  </div>
-  <hr> -->
-<div style="margin-top: 130px;">
-  <div style="background-color:chartreuse;">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4" style="background-color:chocolate;">
 
-          {% if profile_details.prof_pic %}
-          <img src="{{profile_details.prof_pic.cdn_url}}" alt="profile-photo">
-          {% else %}
-          <img style="border-radius: 40em;" src="/static/img/avatah.png" alt="avatar">
-          {% endif %}
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline">
-            {% if profile.username == user.username %}
-            <li class="list-inline-item">
-              <a class="btn btn-edit" href="{% url 'edit_profile' %}">Edit Profile</a>
-            </li>
-            <li class="list-inline-item">
-              <a data-toggle="modal" data-target="#settings"><i class="fa fa-cog fa-2x"></i></a>
-            </li>
-            {% endif %}
-          </ul>
-          <ul class="list-inline">
-            <li class="list-inline-item">
-            </li>
-          </ul>
+<div style="margin-top: 130px;background-color: " class="container">
+  <div style="text-align:center">
+    <li class="list-inline-item">
+      <h3><span class="username">{{ profile.username }}</span></h3>
+    </li>
+  </div>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4" style="background-color:chocolate;">
+
+        {% if profile_details.prof_pic %}
+        <img src="{{profile_details.prof_pic.cdn_url}}" alt="profile-photo">
+        {% else %}
+        <img style="border-radius: 40em;" src="/static/img/avatah.png" alt="avatar">
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <ul class="list-inline">
           {% if profile.username == user.username %}
-          <a href="{% url 'upload_project' %}">Add Project&nbsp;<i class="fas fa-plus"></i></a>
+          <div class="edit-btn">
+            <a href="{% url 'edit_profile' %}">Edit Profile</a>
+            <a href="/logout">
+              <p class="with-border">Log Out</p>
+            </a>
+          </div>
+
           {% endif %}
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</div>
-</div>
-<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <ul class="list-group">
-          <li class="list-group-item text-center"><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
-          <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-          <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
         </ul>
+
+        {% if profile.username == user.username %}
+        <a href="{% url 'upload_project' %}">
+          <p>
+            Add Project
+          </p> &nbsp;<i class="fas fa-plus"></i>
+        </a>
+        {% endif %}
+
       </div>
+
     </div>
   </div>
 </div>
+<hr>
 <h3 style="font-weight:bold;font-family: 'Lato', sans-serif;text-align: center;">Projects Posted :</h3>
-<div class="row">
-  <div class="row user-images">
-    {% for project in projects %}
-    <div class="col-md-4 images">
-      <img src="{{project.image.cdn_url}}" alt="Image">
-    </div>
-    {% empty %}
-    <div class="col-md-12">
-      <h2 align="center">Upload Projects</h2>
-    </div>
-    {% endfor %}
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="row user-images">
+      {% for project in projects %}
+      <div class="post-image" style="background-color:teal;">
+        <img src="{{project.image.url}}" data-toggle="modal" data-target="#exampleModalCenter{{project.id}}"
+          class="img-responsive project" alt="" style="position: center;size: cover;" height="300px" width="350px">
 
-  <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <ul class="list-group">
-            <li class="list-group-item text-center"><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
-            <li class="list-group-item text-center"><a href="/logout/">Log Out</a></li>
-            <li class="list-group-item text-center"><a data-dismiss="modal">Cancel</a></li>
-          </ul>
-        </div>
       </div>
+      {% empty %}
+
+      {% endfor %}
     </div>
   </div>
 </div>
 </div>
-
 {% endblock %}
