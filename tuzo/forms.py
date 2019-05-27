@@ -41,3 +41,30 @@ class DesignForm(forms.ModelForm):
     class Meta:
         model = DesignRating
         fields = ['rating', ]
+        
+class ProfileUpdateForm(forms.ModelForm):
+   '''
+   Profile update form. 
+
+   Allows user to add a bio and a custom avatar.
+   '''
+
+   class Meta:
+      model = Profile
+      fields = ['prof_pic','bio']
+      widgets = {
+         'bio': forms.Textarea(attrs={'placeholder': 'Bio'})         
+      }
+
+class UserUpdateForm(forms.ModelForm):
+   '''
+   User update form.
+
+   A user can add their name
+   '''
+   first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
+   last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
+   class Meta:
+      model = User
+      fields = ['first_name','last_name']
+        
