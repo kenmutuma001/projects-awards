@@ -90,19 +90,45 @@ def upload_image(request):
     return render(request, 'profile/upload_image.html', {'form':form})
 
 
-@login_required(login_url='/accounts/login')
-def edit_profile(request):
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES)
-        if form.is_valid():
-            edit = form.save(commit=False)
-            edit.user = request.user
-            edit.save()
-            return redirect('edit_profile')
-    else:
-        form = ProfileForm()
+# @login_required(login_url='/accounts/login')
+# def edit_profile(request):
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             edit = form.save(commit=False)
+#             edit.user = request.user
+#             edit.save()
+#             return redirect('edit_profile')
+#     else:
+#         form = ProfileForm()
 
-    return render(request, 'profile/edit_profile.html', {'form':form})
+#     return render(request, 'profile/edit_profile.html', {'form':form})
+
+@login_required
+def edit_profile(request):
+   user = request.user
+
+   if request.method == 'POST':
+      form = ProfileUpdateForm(request.POST,request.FILES,instance=user.profile)
+      user_form = UserUpdateForm(request.POST,instance=user)
+      if user_form.is_valid() and form.is_valid():
+         user_form.save()
+         profile = form.save(commit=False)
+         profile.user = user
+         profile.save()
+         messages.info(request, 'You\'ve successfully updated your account!')
+         return redirect('profile')
+   else:
+      form = ProfileUpdateForm(instance=request.user)
+      user_form = UserUpdateForm(instance=request.user.profile)
+
+   context = { 
+      'user': user,
+      'user_form': user_form,
+      'form': form
+   }
+
+   return render(request, 'profile/edit_profile.html', context)
 
 def search(request):
     if 'search' in request.GET and request.GET['search']:
