@@ -3,14 +3,15 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div style=" padding-left: 400px; background-color: rgba(250, 135, 135, 0.2);  border-radius: 1em;" class="container">
+<div style=" padding-left: 400px; " class="container">
     <div class="row sign-up">
-        <div class="col-md-4">
+        <div class="col-md-5" style="background-color: white;margin-top: 60px;border-radius: 2em;">
             {% if form.errors %}
-            <p class="small">Password or Username is incorrect</p>
+
             {% endif %}
             <div class="section">
-                <h1 align="center" style="font-style: italic; color: black;">Zawadi</h1>
+                <h1 align="center" style="font-style: italic; color: black;">Projects Awards</h1>
+                <hr>
                 <div class="form-section">
                     <form action="/accounts/login/" method="POST">
                         {% csrf_token %}
