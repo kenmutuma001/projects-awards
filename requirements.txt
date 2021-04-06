@@ -11,7 +11,7 @@ django-bootstrap4==0.0.8
 django-forms-bootstrap==3.1.0
 django-heroku==0.3.1
 django-ratings==0.3.7
-django-registration==2.4.1
+django-registration==3.1.2
 django-tinymce==2.8.0
 djangorestframework==3.9.2
 gunicorn==19.9.0
